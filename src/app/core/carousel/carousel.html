@@ -1,0 +1,29 @@
+<div class="carousel">
+  <div class="carousel-inner">
+    <div 
+      class="carousel-item" 
+      *ngFor="let slide of slides; let i = index"
+      [@slideAnimation]
+      [class.active]="i === currentIndex"
+    >
+     
+      <div class="bg-image" [style.backgroundImage]="'url(' + slide.bgImage + ')'"></div>
+
+      
+      <img class="main-image" [src]="slide.image" [alt]="slide.caption">
+
+      <div class="caption" [class.active]="i === currentIndex">
+        {{ slide.caption }}
+      </div>
+    </div>
+  </div>
+
+  <button class="prev" (click)="prevSlide()">‹</button>
+  <button class="next" (click)="nextSlide()">›</button>
+
+  <div class="dots">
+    <span *ngFor="let slide of slides; let i = index" 
+          [class.active]="i === currentIndex"
+          (click)="goToSlide(i)"></span>
+  </div>
+</div>

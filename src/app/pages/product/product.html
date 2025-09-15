@@ -1,0 +1,44 @@
+<div class="products">
+
+  
+  <div class="filters">
+    <input 
+      type="text" 
+      placeholder="Search products..." 
+      [(ngModel)]="searchTerm"
+    />
+
+    <select [(ngModel)]="selectedCategory">
+      <option value="">All Categories</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+    </select>
+  </div>
+
+  
+  <div class="products-row">
+    <div 
+      *ngFor="let product of filteredProducts()" 
+      class="product-card" 
+      (click)="openProduct(product)"
+    >
+      <img [src]="product.images[0]" alt="{{ product.name }}">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | currency }}</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" *ngIf="selectedProduct">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ selectedProduct.name }}</h2>
+    <p class="price">{{ selectedProduct.price | currency }}</p>
+    <p class="description">{{ selectedProduct.description }}</p>
+    <div class="modal-images">
+      <button class="prev" (click)="prevImage()">&#10094;</button>
+      <img [src]="selectedProduct.images[selectedImageIndex]" alt="{{ selectedProduct.name }}">
+      <button class="next" (click)="nextImage()">&#10095;</button>
+    </div>
+  </div>
+</div>

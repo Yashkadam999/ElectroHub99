@@ -1,0 +1,32 @@
+<nav class="navbar">
+  
+  <div class="logo">
+    
+    <h1 class="brand-name">ElectroHub</h1>
+  </div>
+
+  
+  <div class="hamburger" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  
+  <ul class="nav-links" [class.active]="menuOpen">
+    <li><a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">Home</a></li>
+    <li><a routerLink="/product" routerLinkActive="active" (click)="closeMenu()">Products</a></li>
+    <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a></li>
+    <li><a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+  </ul>
+
+  
+  <div class="actions">
+    <div class="cart">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-count">0</span>
+    </div>
+    <button class="logout-btn">Logout</button>
+  </div>
+</nav>

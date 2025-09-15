@@ -1,0 +1,149 @@
+/* Global body background */
+body {
+  background: url('https://thumbs.dreamstime.com/b/online-shopping-website-laptop-screen-female-hands-using-smartphone-55061495.jpg') no-repeat center center fixed;
+  background-size: cover;          
+  background-attachment: fixed;     
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;   
+  color: #fff;                      
+}
+
+/* Optional overlay to make text readable */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4); 
+  z-index: -1;                      
+}
+
+
+
+.about-hero {
+  background: linear-gradient(135deg, #4a90e2, #50e3c2);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 0 0 50% 50% / 0 0 10% 10%;
+  position: relative;
+  overflow: hidden;
+
+ 
+  animation: heroFadeIn 1.2s ease forwards;
+
+  h1, h2, p {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: textSlideIn 1s ease forwards;
+  }
+
+  h1 {
+    animation-delay: 0.3s;
+  }
+  p {
+    animation-delay: 0.6s;
+  }
+
+ 
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    animation: floatBg 10s linear infinite;
+  }
+}
+
+.team {
+  padding: 2rem;
+  text-align: center;
+
+  h2 {
+    color: #4a90e2;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    animation: pulseText 2s infinite;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+
+    .team-member {
+      background: #0e0e0e;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(5, 139, 235, 0.918);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardFadeUp 0.8s ease forwards;
+      color: #fff;
+
+     
+      &:nth-child(1) { animation-delay: 0.2s; }
+      &:nth-child(2) { animation-delay: 0.4s; }
+      &:nth-child(3) { animation-delay: 0.6s; }
+      &:nth-child(4) { animation-delay: 0.8s; }
+
+      &:hover {
+        transform: translateY(-10px) scale(1.08) rotate(-1deg);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+      }
+
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: 1rem;
+        transition: transform 0.5s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.1) rotate(2deg);
+      }
+
+      h3 {
+        margin: 0.5rem 0;
+        color: #f7eded;
+      }
+
+      p {
+        color: #4a90e2;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes textSlideIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatBg {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseText {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}

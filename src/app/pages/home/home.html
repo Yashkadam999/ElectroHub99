@@ -1,0 +1,95 @@
+<section class="hero">
+  <div class="overlay"></div>
+<div class="products-grid" #productsGrid>
+  <div class="product-card" *ngFor="let product of products" #productCard>
+    <!-- existing product content -->
+  </div>
+</div>
+
+  <div class="hero-content">
+    <h2>Welcome to ElectroHub 🛒</h2>
+    <p>Your one-stop online shop for amazing products!</p>
+    <button class="shop-now">Shop Now</button>
+  </div>
+
+  <div class="floating-shapes">
+    <span class="shape shape1"></span>
+    <span class="shape shape2"></span>
+    <span class="shape shape3"></span>
+    <span class="shape shape4"></span>
+  </div>
+</section>
+
+<app-carousel></app-carousel>
+
+<div class="products">
+  <h2>Our Products</h2>
+  <div class="products-grid">
+    <div
+      class="product-card"
+      *ngFor="let product of products; let i = index"
+      #productCard
+      [@fadeInUp]
+      (click)="openProduct(product)"
+    >
+      <div class="product-images">
+        <img
+          *ngFor="let img of product.images; let j = index"
+          [src]="img"
+          [class.active]="j === 0"
+        />
+      </div>
+      <h3>{{ product.name }}</h3>
+      <div class="price">${{ product.price }}</div>
+      <div class="description">{{ product.description }}</div>
+      <button class="buy-btn">Buy Now</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Testimonials Section -->
+<div class="testimonials">
+  <h2>What Our Customers Say ❤️</h2>
+  <div class="testimonial-list">
+    <div class="testimonial" *ngFor="let review of reviews">
+      <p>"{{ review.text }}"</p>
+      <strong>- {{ review.author }}</strong>
+    </div>
+  </div>
+</div>
+
+<!-- Newsletter Section -->
+<div class="newsletter">
+  <h2>Stay Updated 📩</h2>
+  <p>Subscribe to get the latest deals and offers!</p>
+  <form>
+    <input type="email" placeholder="Enter your email" />
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
+
+<!-- Modal for Products -->
+<div class="modal" *ngIf="selectedProduct">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+
+    <div class="modal-images">
+      <img
+        [src]="selectedProduct.images[selectedImageIndex]"
+        alt="{{ selectedProduct.name }}"
+      />
+      <button class="prev" (click)="prevImage()">&#10094;</button>
+      <button class="next" (click)="nextImage()">&#10095;</button>
+    </div>
+
+    <h2>{{ selectedProduct.name }}</h2>
+    <div class="price">${{ selectedProduct.price }}</div>
+    <div class="description">{{ selectedProduct.description }}</div>
+  </div>
+</div>
+
+
+

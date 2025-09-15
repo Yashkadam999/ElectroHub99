@@ -1,0 +1,19 @@
+<section class="services-hero">
+  <div class="services-content">
+    <h2>Our Services 💼</h2>
+    <p>
+      At ShopEase, we offer top-notch services to ensure your shopping experience is seamless and enjoyable.
+    </p>
+  </div>
+</section>
+
+<section class="services-list">
+  <h2>What We Offer</h2>
+  <div class="services-grid">
+    <div class="service-card" *ngFor="let service of services" [@fadeInStagger]>
+      <div class="icon">{{ service.icon }}</div>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,140 @@
+.app-footer {
+  background-color: #111; 
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+
+ 
+  animation: fadeInFooter 1.5s ease forwards;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: bounceText 2s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .brand-marquee {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1rem;
+    position: relative;
+  }
+
+  .brand-marquee span {
+    display: inline-block;
+    padding: 0 1rem;
+    font-weight: bold;
+    color: #0ff;
+    text-shadow: 
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 30px #0ff,
+      0 0 40px #0ff;
+    animation: neonPulse 2s infinite alternate;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  
+  .brand-marquee span::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, transparent 80%);
+    filter: blur(15px);
+    transform: translate(-50%, -50%) scaleX(1);
+    z-index: -1;
+    animation: trailPulse 2s infinite alternate;
+  }
+
+  /* Hover effect for brands */
+  .brand-marquee span:hover {
+    transform: scale(1.5) rotate(-5deg);
+    color: #ff00ff;
+    text-shadow: 
+      0 0 10px #ff00ff,
+      0 0 20px #ff00ff,
+      0 0 30px #ff00ff,
+      0 0 40px #ff00ff,
+      0 0 50px #ff00ff;
+  }
+
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(79, 172, 254, 0.1), transparent 70%);
+    animation: rotateBg 25s linear infinite;
+    pointer-events: none;
+  }
+
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,255,255,0.1), rgba(0,255,255,0.5), rgba(0,255,255,0.1));
+    filter: blur(20px);
+    animation: streakMove 12s linear infinite;
+    pointer-events: none;
+  }
+}
+
+
+@keyframes fadeInFooter {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes bounceText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scrollBrands {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes rotateBg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes neonPulse {
+  0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; color: #0ff; }
+  50% { text-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff; color: #0ff; }
+  100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; color: #0ff; }
+}
+
+@keyframes trailPulse {
+  0% { opacity: 0.3; transform: translate(-50%, -50%) scaleX(1); }
+  50% { opacity: 0.6; transform: translate(-50%, -50%) scaleX(1.3); }
+  100% { opacity: 0.3; transform: translate(-50%, -50%) scaleX(1); }
+}
+
+@keyframes streakMove {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(50%); }
+}
