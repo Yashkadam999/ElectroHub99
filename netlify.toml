@@ -2,7 +2,7 @@
   # Command to build your Angular app
   command = "ng build --configuration production"
   # Folder where Angular puts the built files
-  publish = "dist/ElectroHub11/browserS"
+  publish = "dist/ElectroHub11/browser"
 
 # Redirect all routes to index.html for Angular routing
 [[redirects]]
