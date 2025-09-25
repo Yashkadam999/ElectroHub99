@@ -1,0 +1,38 @@
+<div class="full-screen-container">
+  <div class="add-product-box">
+    <h2 class="text-center text-xl font-bold mb-4">➕ Add Product</h2>
+
+    <form (ngSubmit)="submitProduct()" #productForm="ngForm">
+      <!-- Name -->
+      <div>
+        <label>Name</label>
+        <input type="text" [(ngModel)]="product.name" name="name" required />
+      </div>
+
+      <!-- Category -->
+      <div>
+        <label>Category</label>
+        <input type="text" [(ngModel)]="product.category" name="category" required />
+      </div>
+
+      <!-- Price -->
+      <div>
+        <label>Price</label>
+        <input type="number" [(ngModel)]="product.price" name="price" required />
+      </div>
+
+      <!-- Images -->
+      <div>
+        <label>Images</label>
+        <div *ngFor="let img of product.images; let i = index" class="image-field">
+          <input type="text" [(ngModel)]="product.images[i]" name="image{{i}}" placeholder="Image URL" />
+          <button type="button" (click)="removeImageField(i)" class="remove-image-btn" *ngIf="product.images.length > 1">✖</button>
+        </div>
+        <button type="button" (click)="addImageField()" class="add-image-btn">➕ Add Another Image</button>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" [disabled]="!productForm.valid" class="submit-btn">✅ Submit Product</button>
+    </form>
+  </div>
+</div>

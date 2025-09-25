@@ -1,12 +1,13 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { ProductService } from './product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './product.html',
   styleUrls: ['./product.css'],
 })
@@ -142,7 +143,15 @@ export class Product {
   selectedProduct: any = null;
   selectedImageIndex = 0;
 
-  
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.productService.getProducts().subscribe((data) => {
+      this.products = data;
+      this.categories = [...new Set(this.products.map(p => p.category))];
+    });
+  }
+
   filteredProducts() {
     return this.products.filter(p =>
       p.name.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
