@@ -189,3 +189,53 @@ html, body {
     width: 100%;
   }
 }
+.admin-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.admin-btn:hover {
+  background: #0056b3;
+  transform: translateY(-3px);
+}
+.wishlist-popup {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 15px;
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+.wishlist-content h3 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.wishlist-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wishlist-content li {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}

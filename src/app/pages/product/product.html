@@ -1,20 +1,18 @@
 <div class="products">
-
-  
+  <!-- Filters -->
   <div class="filters">
     <input 
       type="text" 
       placeholder="Search products..." 
       [(ngModel)]="searchTerm"
     />
-
     <select [(ngModel)]="selectedCategory">
       <option value="">All Categories</option>
       <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
     </select>
   </div>
 
-  
+  <!-- Product List -->
   <div class="products-row">
     <div 
       *ngFor="let product of filteredProducts()" 
@@ -28,18 +26,65 @@
   </div>
 </div>
 
-
+<!-- Product Modal -->
 <div class="modal" *ngIf="selectedProduct">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
     <h2>{{ selectedProduct.name }}</h2>
     <p class="price">{{ selectedProduct.price | currency }}</p>
     <p class="description">{{ selectedProduct.description }}</p>
+    
+    <!-- Product Images -->
     <div class="modal-images">
       <button class="prev" (click)="prevImage()">&#10094;</button>
       <img [src]="selectedProduct.images[selectedImageIndex]" alt="{{ selectedProduct.name }}">
       <button class="next" (click)="nextImage()">&#10095;</button>
     </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      
+      <button class="buy-now" (click)="buyNow(selectedProduct)">🛒 Buy Now</button>
+    </div>
   </div>
 </div>
 
+<!-- Buy Now Popup -->
+<div class="modal" *ngIf="buyNowProduct">
+  <div class="modal-content checkout-modal">
+    <span class="close" (click)="closeBuyNow()">&times;</span>
+
+    <div class="checkout-header">
+      <h2>Checkout</h2>
+      <p class="product-name">{{ buyNowProduct.name }}</p>
+      <p class="price">{{ buyNowProduct.price | currency }}</p>
+    </div>
+
+    <!-- Address Form -->
+    <form #checkoutForm="ngForm" (ngSubmit)="placeOrder()" class="checkout-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" [(ngModel)]="checkoutData.fullName" name="fullName" required />
+      </div>
+
+      <div class="form-group">
+        <label>Address</label>
+        <textarea [(ngModel)]="checkoutData.address" name="address" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Payment Method</label>
+        <select [(ngModel)]="checkoutData.paymentMethod" name="paymentMethod" required>
+          <option value="">Select</option>
+          <option value="cod">Cash on Delivery</option>
+          <option value="card">Credit/Debit Card</option>
+          <option value="upi">UPI</option>
+        </select>
+      </div>
+
+
+      <button type="submit" class="confirm-btn">Confirm Order</button>
+    </form>
+    
+  </div>
+</div>

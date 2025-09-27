@@ -1,0 +1,21 @@
+.admin-container {
+  padding: 20px;
+}
+
+.admin-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.admin-nav a {
+  text-decoration: none;
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+.admin-nav a.active {
+  background: #0056b3;
+}

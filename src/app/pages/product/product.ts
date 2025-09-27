@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from './product.service';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -140,25 +141,29 @@ export class Product {
   selectedCategory = '';
   categories = [...new Set(this.products.map(p => p.category))];
 
+ 
+
   selectedProduct: any = null;
   selectedImageIndex = 0;
 
-  constructor(private productService: ProductService) {}
+  // Wishlist & BuyNow
+  wishlist: any[] = [];
+  buyNowProduct: any = null;
+  checkoutData = {
+    fullName: '',
+    address: '',
+    paymentMethod: ''
+  };
 
-  ngOnInit() {
-    this.productService.getProducts().subscribe((data) => {
-      this.products = data;
-      this.categories = [...new Set(this.products.map(p => p.category))];
-    });
-  }
-
-  filteredProducts() {
+  // Filtered products
+    filteredProducts() {
     return this.products.filter(p =>
       p.name.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
       (this.selectedCategory === '' || p.category === this.selectedCategory)
     );
   }
 
+  // Product modal
   openProduct(product: any) {
     this.selectedProduct = product;
     this.selectedImageIndex = 0;
@@ -169,15 +174,32 @@ export class Product {
   }
 
   prevImage() {
-    if (!this.selectedProduct) return;
-    this.selectedImageIndex =
-      (this.selectedImageIndex - 1 + this.selectedProduct.images.length) %
-      this.selectedProduct.images.length;
+    if (this.selectedImageIndex > 0) this.selectedImageIndex--;
   }
 
   nextImage() {
-    if (!this.selectedProduct) return;
-    this.selectedImageIndex =
-      (this.selectedImageIndex + 1) % this.selectedProduct.images.length;
+    if (this.selectedImageIndex < this.selectedProduct.images.length - 1) this.selectedImageIndex++;
+  }
+
+  // Wishlist
+  addToWishlist(product: any) {
+    this.wishlist.push(product);
+    alert(`${product.name} added to Wishlist ❤️`);
+  }
+
+  // Buy Now
+  buyNow(product: any) {
+    this.buyNowProduct = product;
+    this.checkoutData = { fullName: '', address: '', paymentMethod: '' };
+  }
+
+  closeBuyNow() {
+    this.buyNowProduct = null;
+  }
+
+  placeOrder() {
+    alert(`Order placed successfully for ${this.buyNowProduct.name}!`);
+    console.log('Order Details:', this.checkoutData);
+    this.closeBuyNow();
   }
 }
