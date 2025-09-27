@@ -21,29 +21,30 @@
   }
 
   .brand-marquee {
-  display: flex;
-  gap: 3rem;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 1rem;
-  position: relative;
-  animation: scrollBrands 15s linear infinite;
-}
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1rem;
+    position: relative;
+  }
 
-.brand-marquee span {
-  display: inline-block;
-  padding: 0 1rem;
-  font-weight: bold;
-  color: #0ff;
-  text-shadow:
-    0 0 5px #0ff,
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 30px #0ff,
-    0 0 40px #0ff;
-  animation: neonPulse 2s infinite alternate;
-}
-
+  .brand-marquee span {
+    display: inline-block;
+    padding: 0 1rem;
+    font-weight: bold;
+    color: #0ff;
+    text-shadow: 
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 30px #0ff,
+      0 0 40px #0ff;
+    animation: neonPulse 2s infinite alternate;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  }
 
   
   .brand-marquee span::after {
@@ -120,11 +121,6 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-@keyframes scrollBrands {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
 
 @keyframes neonPulse {
   0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; color: #0ff; }
@@ -141,65 +137,4 @@
 @keyframes streakMove {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(50%); }
-}
-/* Tablets */
-@media (max-width: 1024px) {
-  .app-footer {
-    padding: 1.5rem 1rem;
-  }
-
-  .app-footer h3 {
-    font-size: 1.3rem;
-  }
-
-  .app-footer .brand-marquee {
-    gap: 2rem;
-    font-size: 0.95rem;
-  }
-}
-
-/* Mobiles */
-@media (max-width: 768px) {
-  .app-footer {
-    padding: 1.2rem 0.8rem;
-  }
-
-  .app-footer h3 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
-
-  .app-footer .brand-marquee {
-    gap: 1.2rem;
-    font-size: 0.85rem;
-    flex-wrap: wrap; /* allow wrapping if needed */
-  }
-
-  .app-footer .brand-marquee span {
-    padding: 0 0.5rem;
-    font-size: 0.85rem;
-  }
-}
-
-/* Small Phones */
-@media (max-width: 480px) {
-  .app-footer {
-    padding: 1rem 0.6rem;
-  }
-
-  .app-footer h3 {
-    font-size: 1rem;
-  }
-
-  .app-footer .brand-marquee {
-    gap: 0.8rem;
-    font-size: 0.75rem;
-    flex-direction: column; /* stack brands if too tight */
-    align-items: center;
-  }
-
-  .app-footer .brand-marquee span {
-    font-size: 0.8rem;
-    transform: none !important; /* prevent hover distortion on touch devices */
-  }
 }
