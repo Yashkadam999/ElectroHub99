@@ -82,3 +82,107 @@
   from { transform: scale(1); }
   to { transform: scale(1.2); }
 }
+/* =============== RESPONSIVE =============== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .services-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .services-list {
+    padding: 1.5rem;
+  }
+
+  .services-list h2 {
+    font-size: 2rem;
+  }
+
+  .services-grid {
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .services-hero {
+    padding: 2.5rem 1rem;
+    border-radius: 0 0 30% 30% / 0 0 8% 8%;
+  }
+
+  .services-hero h1,
+  .services-hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .services-list {
+    padding: 1rem;
+  }
+
+  .services-list h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr 1fr; /* 2 per row */
+    gap: 1rem;
+  }
+
+  .service-card {
+    padding: 1rem;
+  }
+
+  .service-card .icon {
+    font-size: 2rem;
+  }
+
+  .service-card h3 {
+    font-size: 1rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .services-hero {
+    padding: 2rem 1rem;
+    border-radius: 0; /* Flat on very small screens */
+  }
+
+  .services-hero h1,
+  .services-hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .services-list h2 {
+    font-size: 1.3rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+
+  .service-card {
+    padding: 0.8rem;
+  }
+
+  .service-card .icon {
+    font-size: 1.8rem;
+  }
+
+  .service-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+  }
+}

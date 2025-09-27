@@ -324,3 +324,125 @@ input:focus, textarea:focus, select:focus {
     opacity: 1;
   }
 }
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .products {
+    padding: 1.5rem;
+  }
+
+  .products .filters {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .products .filters input,
+  .products .filters select {
+    min-width: 160px;
+  }
+
+  .product-card {
+    height: auto;
+    padding: 1rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  /* Filters stack vertically */
+  .products .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .products .filters input,
+  .products .filters select {
+    width: 100%;
+  }
+
+  /* Product Grid - single column */
+  .products-row {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .product-card img {
+    height: 150px;
+  }
+
+  .product-card h3 {
+    font-size: 1rem;
+  }
+  .product-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Modal Responsive */
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+    padding: 1rem;
+  }
+
+  .modal-images img {
+    height: 200px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .actions button {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .products {
+    padding: 1rem;
+  }
+
+  .product-card {
+    padding: 0.8rem;
+  }
+
+  .product-card img {
+    height: 120px;
+  }
+
+  /* Checkout modal */
+  .modal-content.checkout-modal {
+    width: 95%;
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .checkout-header h2 {
+    font-size: 18px;
+  }
+  .checkout-header .price {
+    font-size: 16px;
+  }
+
+  .checkout-form input,
+  .checkout-form textarea,
+  .checkout-form select {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .confirm-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

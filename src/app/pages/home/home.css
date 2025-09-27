@@ -461,3 +461,121 @@ footer {
   .product-card, .category-card, .testimonial { width:90%; }
   .newsletter form { flex-direction: column; }
 }
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 1024px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero .shop-now {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .products h2,
+  .categories h2,
+  .testimonials h2,
+  .newsletter h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Tablets & Mobile */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Products Section */
+  .products-grid {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .product-card {
+    width: 80%;
+    min-height: 320px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+  }
+  .product-card h3 {
+    font-size: 1rem;
+  }
+
+  /* Categories */
+  .category-card {
+    width: 45%; /* two per row on mobile */
+    padding: 0.8rem;
+  }
+
+  /* Testimonials */
+  .testimonial {
+    width: 90%;
+    font-size: 0.85rem;
+  }
+
+  /* Newsletter */
+  .newsletter form {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .newsletter input {
+    width: 100%;
+  }
+  .newsletter button {
+    width: 100%;
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .footer-about,
+  .footer-links,
+  .footer-socials {
+    width: 100%;
+  }
+}
+
+/* Very Small Devices (Phones <480px) */
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.4rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+  .product-card {
+    width: 95%;
+    height: auto;
+    padding: 1rem;
+  }
+  .product-card .product-images {
+    height: 150px;
+  }
+  .category-card {
+    width: 100%;
+  }
+  .testimonial {
+    width: 100%;
+  }
+  .newsletter input {
+    font-size: 0.9rem;
+  }
+  .newsletter button {
+    font-size: 0.9rem;
+  }
+}
