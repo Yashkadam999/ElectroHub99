@@ -18,15 +18,17 @@ export const routes: Routes = [
       { path: 'home', component: Home },
      
       {path: 'product', component: Product },
+       { path: 'add-product', component: AddProduct },
       { path: 'about', component: About },
       { path: 'services', component: Services },
       { path: 'contact', component: Contact },
-        { path: 'add-product', component: AddProduct },
+       
         {
     path: 'admin',
     component: Admin,
     children: [
        { path: 'add-product', component: AddProduct, canActivate: [AdminGuard] },
+       { path: '', redirectTo: 'product', pathMatch: 'full' },
     ]
   },
       { path: '', redirectTo: 'home', pathMatch: 'full' },

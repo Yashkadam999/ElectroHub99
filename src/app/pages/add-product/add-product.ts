@@ -35,7 +35,7 @@ export class AddProduct {
     this.productService.addProduct(this.product).subscribe({
       next: () => {
         alert('Product added successfully!');
-        this.router.navigate(['/products']);
+        this.router.navigate(['/product']);
       },
       error: (err) => console.error('Error adding product:', err),
     });
