@@ -138,3 +138,64 @@
   0% { transform: translateX(-50%); }
   100% { transform: translateX(50%); }
 }
+/* Tablets */
+@media (max-width: 1024px) {
+  .app-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .app-footer h3 {
+    font-size: 1.3rem;
+  }
+
+  .app-footer .brand-marquee {
+    gap: 2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .app-footer h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .app-footer .brand-marquee {
+    gap: 1.2rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap; /* allow wrapping if needed */
+  }
+
+  .app-footer .brand-marquee span {
+    padding: 0 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .app-footer {
+    padding: 1rem 0.6rem;
+  }
+
+  .app-footer h3 {
+    font-size: 1rem;
+  }
+
+  .app-footer .brand-marquee {
+    gap: 0.8rem;
+    font-size: 0.75rem;
+    flex-direction: column; /* stack brands if too tight */
+    align-items: center;
+  }
+
+  .app-footer .brand-marquee span {
+    font-size: 0.8rem;
+    transform: none !important; /* prevent hover distortion on touch devices */
+  }
+}
