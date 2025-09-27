@@ -21,30 +21,29 @@
   }
 
   .brand-marquee {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 1rem;
-    position: relative;
-  }
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1rem;
+  position: relative;
+  animation: scrollBrands 15s linear infinite;
+}
 
-  .brand-marquee span {
-    display: inline-block;
-    padding: 0 1rem;
-    font-weight: bold;
-    color: #0ff;
-    text-shadow: 
-      0 0 5px #0ff,
-      0 0 10px #0ff,
-      0 0 20px #0ff,
-      0 0 30px #0ff,
-      0 0 40px #0ff;
-    animation: neonPulse 2s infinite alternate;
-    position: relative;
-    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-  }
+.brand-marquee span {
+  display: inline-block;
+  padding: 0 1rem;
+  font-weight: bold;
+  color: #0ff;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 30px #0ff,
+    0 0 40px #0ff;
+  animation: neonPulse 2s infinite alternate;
+}
+
 
   
   .brand-marquee span::after {
@@ -121,6 +120,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@keyframes scrollBrands {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
 
 @keyframes neonPulse {
   0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; color: #0ff; }
