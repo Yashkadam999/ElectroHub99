@@ -35,8 +35,8 @@ export class Carousel {
     caption: 'Big Sale - Up to 50% Off!' 
   },
   { 
-    bgImage: 'https://www.apple.com/in/apple-watch-ultra-2/images/overview/hero/hero_endframe__b7prz1z3rs2u_large.jpg',
-    image: 'https://www.apple.com/in/apple-watch-ultra-2/images/overview/hero/hero_endframe__b7prz1z3rs2u_large.jpg',
+    bgImage: 'https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7_hero_09142021_big.jpg.slideshow-xlarge_2x.jpg',
+    image: 'https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7_hero_09142021_big.jpg.slideshow-xlarge_2x.jpg',
     caption: 'New Arrivals Just Dropped' 
   },
   { 

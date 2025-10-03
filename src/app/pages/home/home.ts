@@ -46,8 +46,8 @@ export class Home implements AfterViewInit {
       description: 'Track fitness, notifications, and more with a sleek smartwatch.',
       price: 299, 
       images: [
-        'https://www.apple.com/in/apple-watch-ultra-2/images/overview/hero/hero_endframe__b7prz1z3rs2u_large.jpg',
-        'https://www.apple.com/in/apple-watch-se/images/overview/hero/hero__gk2727ue87qm_large.jpg'
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRImjiRD6Y9fAqoje7ptm-rGliJ7t9WabbX8A&s',
+        'https://m.media-amazon.com/images/I/71-i7pbrhnL._UF1000,1000_QL80_.jpg'
       ]
     },
     { 
