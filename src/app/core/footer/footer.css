@@ -1,5 +1,5 @@
 .app-footer {
-  background-color: #111; 
+  background-color: #111;
   color: white;
   padding: 2rem 1rem;
   text-align: center;
@@ -7,8 +7,6 @@
   margin-top: 2rem;
   position: relative;
   overflow: hidden;
-
- 
   animation: fadeInFooter 1.5s ease forwards;
 
   h3 {
@@ -23,11 +21,13 @@
   .brand-marquee {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    flex-wrap: wrap; /* ✅ allows wrapping on small screens */
+    gap: 2rem;
     overflow: hidden;
     white-space: nowrap;
     font-size: 1rem;
     position: relative;
+    animation: scrollBrands 30s linear infinite;
   }
 
   .brand-marquee span {
@@ -35,18 +35,12 @@
     padding: 0 1rem;
     font-weight: bold;
     color: #0ff;
-    text-shadow: 
-      0 0 5px #0ff,
-      0 0 10px #0ff,
-      0 0 20px #0ff,
-      0 0 30px #0ff,
-      0 0 40px #0ff;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
     animation: neonPulse 2s infinite alternate;
     position: relative;
     transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
   }
 
-  
   .brand-marquee span::after {
     content: '';
     position: absolute;
@@ -54,26 +48,19 @@
     left: 50%;
     width: 200%;
     height: 150%;
-    background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, transparent 80%);
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 80%);
     filter: blur(15px);
     transform: translate(-50%, -50%) scaleX(1);
     z-index: -1;
     animation: trailPulse 2s infinite alternate;
   }
 
-  /* Hover effect for brands */
   .brand-marquee span:hover {
-    transform: scale(1.5) rotate(-5deg);
+    transform: scale(1.3) rotate(-5deg);
     color: #ff00ff;
-    text-shadow: 
-      0 0 10px #ff00ff,
-      0 0 20px #ff00ff,
-      0 0 30px #ff00ff,
-      0 0 40px #ff00ff,
-      0 0 50px #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
   }
 
-  
   &::before {
     content: '';
     position: absolute;
@@ -86,7 +73,6 @@
     pointer-events: none;
   }
 
-  
   &::after {
     content: '';
     position: absolute;
@@ -94,47 +80,96 @@
     left: -50%;
     width: 200%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(0,255,255,0.1), rgba(0,255,255,0.5), rgba(0,255,255,0.1));
+    background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.5), rgba(0, 255, 255, 0.1));
     filter: blur(20px);
     animation: streakMove 12s linear infinite;
     pointer-events: none;
   }
 }
 
-
+/* ---------- KEYFRAMES ---------- */
 @keyframes fadeInFooter {
   from { opacity: 0; transform: translateY(20px) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
-
 @keyframes bounceText {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
-
 @keyframes scrollBrands {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
-
 @keyframes rotateBg {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 @keyframes neonPulse {
   0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; color: #0ff; }
   50% { text-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 40px #0ff; color: #0ff; }
   100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; color: #0ff; }
 }
-
 @keyframes trailPulse {
   0% { opacity: 0.3; transform: translate(-50%, -50%) scaleX(1); }
   50% { opacity: 0.6; transform: translate(-50%, -50%) scaleX(1.3); }
   100% { opacity: 0.3; transform: translate(-50%, -50%) scaleX(1); }
 }
-
 @keyframes streakMove {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(50%); }
+}
+
+/* ---------- RESPONSIVE STYLES ---------- */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 1.5rem 0.5rem;
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    .brand-marquee {
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      animation: none; /* Prevent jerky scroll on mobile */
+      flex-wrap: wrap;
+    }
+
+    .brand-marquee span {
+      padding: 0.5rem;
+      transform: scale(1);
+    }
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .app-footer {
+    padding: 1rem 0.5rem;
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .brand-marquee {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .brand-marquee span {
+      padding: 0.3rem 0.5rem;
+      transform: scale(1);
+      text-shadow: none;
+      animation: none;
+    }
+
+    .brand-marquee span:hover {
+      transform: scale(1.1);
+    }
+  }
 }
